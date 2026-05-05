@@ -13,7 +13,11 @@ SECRET_KEY = 'django-insecure--m9#j69@$e^42!vdagn_fwbc+wv@$olq3nb^b*0+@s9$a3&+4z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'bibliotecadigital-nscw.onrender.com',
+    '127.0.0.1',
+    'localhost',
+]
 
 
 # Application definition
