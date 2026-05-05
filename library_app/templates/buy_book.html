@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Comprar {{ book.title }} | BibliotecaPro{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'library_app/css/buy.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="checkout-hero">
+    <h1>Finalizar compra</h1>
+    <p>Compra individual. Este pagamento desbloqueia apenas este livro.</p>
+</section>
+
+<section class="checkout-card">
+    <div class="checkout-cover">
+        {% if book.cover %}
+            <img src="{{ book.cover.url }}" alt="{{ book.title }}">
+        {% else %}
+            <div class="checkout-placeholder">{{ book.title|slice:":1" }}</div>
+        {% endif %}
+    </div>
+
+    <div class="checkout-info">
+        <span class="checkout-badge">Livro pago</span>
+
+        <h2>{{ book.title }}</h2>
+        <p class="checkout-meta">{{ book.author }} • {{ book.year }}</p>
+
+        {% if book.description %}
+            <p class="checkout-description">{{ book.description }}</p>
+        {% endif %}
+
+        <div class="price-box">
+            <span>Total a pagar</span>
+            <strong>{{ book.price }} MT</strong>
+        </div>
+
+       <form method="post" class="payment-row">
+    {% csrf_token %}
+
+    <label for="payment_method">Método de pagamento</label>
+    <select id="payment_method" name="payment_method">
+        <option value="emola">e-Mola</option>
+        <option value="mpesa">M-Pesa</option>
+    </select>
+
+    <label for="phone_number">Número</label>
+    <input 
+        type="text" 
+        id="phone_number" 
+        name="phone_number" 
+        placeholder="Ex: 86/87xxxxxxx"
+        required
+    >
+
+    <button type="submit" class="btn">Pagar</button>
+    <a href="{% url 'book_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+<script>
+    const paymentMethod = document.getElementById("payment_method");
+    const phoneNumber = document.getElementById("phone_number");
+
+    function updatePlaceholder() {
+        if (paymentMethod.value === "mpesa") {
+            phoneNumber.placeholder = "Ex: 84/85xxxxxxx";
+        } else {
+            phoneNumber.placeholder = "Ex: 86/87xxxxxxx";
+        }
+    }
+
+    paymentMethod.addEventListener("change", updatePlaceholder);
+    updatePlaceholder();
+</script>
+    </div>
+</section>
+
+{% endblock %}

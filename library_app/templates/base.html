@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Biblioteca FJU{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'library_app/css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-brand">
+        <a href="{% url 'book_list' %}">
+           <img src="{% static 'library_app/images/logo.png' %}" class="logo-img">
+            Biblioteca FJU
+        </a>
+    </div>
+
+    <nav class="nav-links">
+        <a href="{% url 'book_list' %}">Livraria</a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'my_books' %}">Meus Livros</a>
+            <span class="user-pill">{{ user.username }}</span>
+            <a href="{% url 'logout' %}" class="nav-btn">Sair</a>
+        {% else %}
+            <a href="{% url 'login' %}">Entrar</a>
+            <a href="{% url 'register' %}" class="nav-btn">Criar Conta</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main class="page-container">
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    <p>© 2026 BibliotecaFJU — Plataforma Digital de Leitura</p>
+</footer>
+
+</body>
+</html>

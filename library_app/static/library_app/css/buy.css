@@ -1,0 +1,125 @@
+.checkout-hero {
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    color: white;
+    padding: 42px;
+    border-radius: 26px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+}
+
+.checkout-hero h1 {
+    margin: 0 0 8px;
+    font-size: 36px;
+}
+
+.checkout-hero p {
+    margin: 0;
+    color: #dbeafe;
+}
+
+.checkout-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    background: white;
+    border-radius: 26px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.checkout-cover img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.checkout-placeholder {
+    height: 420px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #dbeafe, #60a5fa);
+    display: grid;
+    place-items: center;
+    font-size: 90px;
+    color: white;
+    font-weight: 900;
+}
+
+.checkout-badge {
+    background: var(--orange-bg);
+    color: var(--orange-text);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 800;
+}
+
+.checkout-info h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.checkout-meta {
+    color: var(--muted);
+}
+
+.checkout-description {
+    line-height: 1.7;
+    color: #475569;
+}
+
+.price-box {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 18px;
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-box span {
+    color: var(--muted);
+}
+
+.price-box strong {
+    font-size: 28px;
+    color: var(--orange-text);
+}
+
+.payment-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.payment-row label {
+    font-weight: 600;
+}
+
+.payment-row select,
+.payment-row input {
+    height: 44px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.payment-row button,
+.payment-row a {
+    height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 850px) {
+    .checkout-card {
+        grid-template-columns: 1fr;
+    }
+}
