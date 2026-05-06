@@ -63,8 +63,10 @@
     {% for book in books %}
         <article class="book-card">
             <div class="cover-wrapper">
-                {% if book.cover %}
-                    <img src="{{ book.cover.url }}" alt="{{ book.title }}" class="book-cover">
+                {% if book.cover_url %}
+                <img src="{{ book.cover_url }}" alt="{{ book.title }}" class="book-cover">
+                {% elif book.cover %}
+                <img src="{{ book.cover.url }}" alt="{{ book.title }}" class="book-cover">
                 {% else %}
                     <div class="book-cover cover-placeholder">
                         <span>{{ book.title|slice:":1" }}</span>

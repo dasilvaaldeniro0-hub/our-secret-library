@@ -11,9 +11,11 @@
 
 <section class="detail-layout">
     <div class="detail-cover-card">
-        {% if book.cover %}
-            <img src="{{ book.cover.url }}" alt="{{ book.title }}">
-        {% else %}
+        {% if book.cover_url %}
+    <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+    {% elif book.cover %}
+    <img src="{{ book.cover.url }}" alt="{{ book.title }}">
+    {% else %}
             <div class="detail-placeholder">{{ book.title|slice:":1" }}</div>
         {% endif %}
     </div>
@@ -45,6 +47,13 @@
 <a class="btn" href="{{ book.pdf.url }}" target="_blank">
     Abrir Livro
 </a>
+        {% if book.pdf_url %}
+         <iframe src="{{ book.pdf_url }}"></iframe>
+        {% elif book.pdf %}
+        <iframe src="{{ book.pdf.url }}"></iframe>
+        {% else %}
+        <p>Este livro ainda não tem PDF disponível.</p>
+        {% endif %}
 </section>
 
 {% endblock %}
