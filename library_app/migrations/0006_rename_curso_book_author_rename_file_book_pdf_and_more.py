@@ -28,10 +28,6 @@ class Migration(migrations.Migration):
             old_name='ano',
             new_name='year',
         ),
-        migrations.RemoveField(
-            model_name='book',
-            name='nivel',
-        ),
         migrations.AddField(
             model_name='book',
             name='cover',
