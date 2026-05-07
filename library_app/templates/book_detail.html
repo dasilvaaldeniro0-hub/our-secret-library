@@ -44,16 +44,23 @@
         <p>Visualização directa do ficheiro PDF.</p>
     </div>
 
-<a class="btn" href="{{ book.pdf.url }}" target="_blank">
-    Abrir Livro
-</a>
-        {% if book.pdf_url %}
-         <iframe src="{{ book.pdf_url }}"></iframe>
-        {% elif book.pdf %}
+    {% if book.pdf_url %}
+        <a class="btn" href="{{ book.pdf_url }}" target="_blank">
+            Abrir Livro
+        </a>
+
+        <iframe src="{{ book.pdf_url }}"></iframe>
+
+    {% elif book.pdf %}
+        <a class="btn" href="{{ book.pdf.url }}" target="_blank">
+            Abrir Livro
+        </a>
+
         <iframe src="{{ book.pdf.url }}"></iframe>
-        {% else %}
+
+    {% else %}
         <p>Este livro ainda não tem PDF disponível.</p>
-        {% endif %}
+    {% endif %}
 </section>
 
 {% endblock %}
