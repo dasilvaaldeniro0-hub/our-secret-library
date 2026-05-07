@@ -7,7 +7,7 @@ class Book(models.Model):
     author = models.CharField(max_length=200)
     year = models.IntegerField()
     description = models.TextField(blank=True, null=True)
-    pdf = models.FileField(upload_to='books/')
+    pdf = models.FileField(upload_to='books/', blank=True, null=True)
     cover = models.ImageField(upload_to='covers/', blank=True, null=True)
     is_paid = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=8, decimal_places=2, default=0.00)
