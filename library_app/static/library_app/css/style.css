@@ -36,6 +36,7 @@ header {
     line-height: 1.8;
     max-width: 900px;
     margin: auto;
+    text-align: center;
 }
 
 .hero {
