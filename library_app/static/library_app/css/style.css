@@ -30,6 +30,14 @@ header {
     font-size: 15px;
 }
 
+.verse {
+    font-style: italic;
+    color: #d1d5db;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: auto;
+}
+
 .hero {
     text-align: center;
     padding: 40px 20px 50px;
