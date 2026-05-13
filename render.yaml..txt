@@ -1,6 +1,0 @@
-services:
-  - type: web
-    name: our-secret-library
-    env: python
-    buildCommand: "./build.sh"
-    startCommand: "gunicorn library_project.wsgi:application"
